@@ -34,5 +34,32 @@ LinkedList.prototype.insertAtEnd = function(data) {
     tail.next = newNode;
     return this.head;
 }
+LinkedList.prototype.getAt = function(index) {
+    let counter = 0;
+    let node = this.head;
+    while(node) {
+        if(counter == index) {
+            return node;
+        }
+        counter++;
+        node = node.next;
+    }
+    return null;
+}
+LinkedList.prototype.insertAt = function(data, index) {
+    if(!this.head) {
+        this.head = new Node(data);
+        return;
+    }
+    if(index === 0) {
+        this.head = new Node(data, this.head);
+        return;
+    }
+    const previous = this.getAt(index - 1);
+    let newNode = new Node(data);
+    newNode.next = previous.next
+    previous.next = newNode;
+    return this.head;
+}
 
 let list = new LinkedList();
