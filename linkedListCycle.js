@@ -1,5 +1,5 @@
 //https://leetcode.com/problems/linked-list-cycle/
-function listNode(val) {
+function ListNode(val) {
     this.val = val;
     this.next = null;
 }
