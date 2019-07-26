@@ -10,9 +10,8 @@ var hasCycle = function(head) {
     var node1 = head;
     var node2 = head.next;
     while(node1 !== null && node2 !== null) {
-        if(node1.val == node2.val) {
+        if(node1.val == node2.val)
             return true;
-        }
         else {
             node1 = node1.next;
             node2 = node2.next;
