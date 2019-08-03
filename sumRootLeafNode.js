@@ -12,8 +12,8 @@ var myNode = function TreeNode(value) {
 var sumNumbers = function(root) {
     //create an array of all the nodes and iterate till empty
     //add a property to each node that is the running number so far
-if(root === null)
-    return 0;
+    if(root === null)
+        return 0;
     root.total = String(root.val);
     var totalSum = 0;
     var nodes = [root];
@@ -30,5 +30,10 @@ if(root === null)
         if(currentNode.right === null && currentNode.left === null)
             totalSum += parseInt(currentNode.total);
     }
-return totalSum;
+    return totalSum;
 };
+
+var sumNumbers = function(root) {
+}
+//alternative solution using recursion
+
