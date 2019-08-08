@@ -2,7 +2,7 @@ var subsets = function(nums) {
     var resultsArray = [];
     for(var i =0;i < nums.length; i ++) {
         for(var p = 0; p < resultsArray.length; p++) {
-           // if(!resultsArray[p].includes(nums[i]))
+            if(!resultsArray[p].includes(nums[i]))
                 resultsArray.push([...resultsArray[p], nums[i]]);
         }
         resultsArray.push([nums[i]]);
