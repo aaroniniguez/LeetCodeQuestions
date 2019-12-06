@@ -11,9 +11,9 @@ var convert = function(s, numRows) {
 	for(let i =0; i < numRows; i++) {
 		grid[i] = [];
 	}
+	let sArray = s.split("");
 	//first create num rows arrays in an array
-	function addToGrid(s, currentRow, xPosition) {
-		let sArray = s.split("");
+	function addToGrid(currentRow, xPosition) {
 		if(currentRow === 0) {
 			for (var index = 0; index < grid.length; index++) {
 				let newChar = sArray.shift();
@@ -21,23 +21,23 @@ var convert = function(s, numRows) {
 					return
 				grid[index][xPosition] = newChar 
 			}
-			addToGrid(sArray.join(""), index - 2, xPosition + 1)
+			addToGrid(index - 2, xPosition + 1)
 		}
 		else {
 			let newChar = sArray.shift();
 			if(newChar === undefined)
 				return
 			grid[currentRow][xPosition] = newChar;
-			addToGrid(sArray.join(""), currentRow - 1, xPosition + 1)
+			addToGrid(currentRow - 1, xPosition + 1)
 		}
 	}
-	addToGrid(s, 0, 0);
+	addToGrid(0, 0);
 	let result = ""
 	grid.forEach(row => {
 		result += row.join("");
 	});
 	return result;
 };
-let s = "AB";
-let numRows = 1;
-convert(s, numRows);
+let s = "PAYPALISHIRING";
+let numRows = 3;
+console.log(convert(s, numRows)) 
