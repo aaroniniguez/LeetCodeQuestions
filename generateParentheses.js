@@ -10,30 +10,26 @@ var generateParenthesis = function(n) {
 		"(": n,
 		")": n
 	}
-	function createCopy(open , closed) {
-		return {
-			"(": open,
-			")": closed
-		} 
-	}
 	getAllCombinations(0, allChars, "");
 	function getAllCombinations(validCounter, availableChars, newResult) {
-		//base case: 
 		if(availableChars["("] === 0 && availableChars[")"] === 0)
 			results.push(newResult)
 		if(validCounter > 0) {
 			if(availableChars["("]) {
-				let mycopy = createCopy(availableChars["("] - 1, availableChars[")"])
+				let mycopy = {...availableChars}
+				mycopy["("] -= 1;
 				getAllCombinations(validCounter +1, mycopy, newResult + "(")
 			}
 			if(availableChars[")"]) {
-				let mycopy = createCopy(availableChars["("], availableChars[")"]-1)
+				let mycopy = {...availableChars}
+				mycopy[")"] -= 1;
 				getAllCombinations(validCounter -1, mycopy, newResult + ")")
 			}
 		}
 		else if(validCounter === 0) {
 			if(availableChars["("]) {
-				let mycopy = createCopy(availableChars["("] - 1, availableChars[")"])
+				let mycopy = {...availableChars}
+				mycopy["("] -= 1;
 				getAllCombinations(validCounter +1, mycopy, newResult + "(")
 			}
 		}
