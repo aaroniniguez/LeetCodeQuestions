@@ -8,11 +8,11 @@ function ListNode(val) {
 */
 
 
-let myarray = [1,2,3];
-quickSort(myarray, 0, myarray.length-1);
+let myarray = [1,2,3, 0, 23, 2];
+let result = quickSort(myarray, 0, myarray.length-1);
+console.log(result);
 function quickSort(arr, left, right) {
-	var len = arr.length, 
-	pivot, 
+	var pivot, 
 	partitionIndex;
 
 	if(left < right) {
