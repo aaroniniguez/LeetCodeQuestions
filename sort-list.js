@@ -63,7 +63,6 @@ var sortList = function(node) {
 		else 
 			nodes[i].next = nodes[i+1];
 	}
-	console.log(nodes);
 	return nodes[0];
 };
 
