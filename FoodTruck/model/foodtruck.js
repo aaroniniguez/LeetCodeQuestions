@@ -1,0 +1,21 @@
+import mongoose from 'mongoose';
+import Review from "./review.js"
+let Schema = mongoose.Schema;
+let foodtruckSchema = new Schema({
+	name: {
+		type: String, 
+		required: true
+	} , 
+	foodtype: {
+		type: String, 
+		required: true
+	}, 
+	avgcost: Number, 
+	geometry: {
+		type: {type: String, default: 'Point'}, 
+		coordinates: [Number]
+	}, 
+	reviews: [{type: Schema.Types.ObjectId, ref: 'Review'}]
+});
+
+export default mongoose.model("Foodtruck", foodtruckSchema);
